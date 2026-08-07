@@ -3,30 +3,43 @@ layout: default
 title: Home
 ---
 
-[Home](/) | [About](/about/) | [GitHub](https://github.com/santapower3)
+[Home](/) | [About](/about/) | [GitHub](https://github.com/santapower)
 
 # Daniel Kim
 
-Cybersecurity student at Purdue University interested in penetration testing, security operations, cloud security, and network security.
+Cybersecurity student interested in penetration testing, security operations, network security, and cloud security.
 
-## About This Blog
+This site documents my cybersecurity projects, technical notes, labs, and learning journey.
 
-This blog documents my cybersecurity learning journey, projects, technical notes, and hands-on lab experiences.
+---
 
-## Blog Posts
+## Latest Posts
 
-- [Welcome to My Cybersecurity Blog]({% post_url 2026-08-05-welcome-to-my-blog %})
+{% for post in site.posts %}
 
-## Featured Topics
+### [{{ post.title }}]({{ post.url | relative_url }})
 
-- Cybersecurity projects
-- Penetration testing
-- Network and system security
-- Python and Linux
-- Hack The Box learning notes
-- Career and certification progress
+**{{ post.date | date: "%B %d, %Y" }}**
 
-## Contact
+{{ post.excerpt }}
 
-- [GitHub](https://github.com/santapower3)
+[Read more →]({{ post.url | relative_url }})
+
+---
+
+{% endfor %}
+
+## Areas I'm Learning
+
+- Penetration Testing
+- Vulnerability Assessment
+- Network Security
+- Linux & Windows Security
+- Cloud Security
+- Python
+- Security Operations
+
+## Connect
+
+- [GitHub](https://github.com/santapower)
 - [LinkedIn](https://www.linkedin.com/in/daniel-kim-489656329/)

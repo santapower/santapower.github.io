@@ -3,8 +3,6 @@ layout: default
 title: Home
 ---
 
-[Home](/) | [About](/about/) | [GitHub](https://github.com/santapower)
-
 # Daniel Kim
 
 Cybersecurity student interested in penetration testing, security operations, network security, and cloud security.

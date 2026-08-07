@@ -2,7 +2,8 @@
 layout: default
 title: "Welcome to My Cybersecurity Blog"
 date: 2026-08-05
-categories: cybersecurity
+categories: [cybersecurity]
+tags: [career, learning, projects]
 ---
 
 # Welcome to My Cybersecurity Blog

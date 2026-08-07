@@ -6,13 +6,50 @@ permalink: /about/
 
 # About Me
 
-I am Daniel Kim, a cybersecurity student at Purdue University.
+I'm Daniel Kim, a cybersecurity student at Purdue University with interests in penetration testing, security operations, network security, and cloud infrastructure.
 
-My interests include penetration testing, security operations, network security, cloud infrastructure, and cybersecurity automation.
+I use this site to document what I learn through coursework, cybersecurity labs, personal projects, certifications, and hands-on security practice.
 
-I use this blog to document:
+## Areas of Interest
 
-- Cybersecurity projects
-- Technical concepts I have learned
-- Hands-on lab experiences
-- Certifications and career development
+- Penetration Testing
+- Security Operations
+- Vulnerability Assessment
+- Network Security
+- Linux & Windows Security
+- Cloud Security
+- Cybersecurity Automation
+
+## Technical Skills
+
+**Security**
+- Nmap
+- Nessus
+- OpenVAS
+- Wireshark
+- Metasploit
+
+**Systems**
+- Linux
+- Windows
+- Active Directory
+
+**Networking**
+- TCP/IP
+- DNS
+- Routing & Switching
+- Firewalls
+
+**Programming**
+- Python
+- Bash
+- PowerShell
+
+## Certifications
+
+- CompTIA Security+
+
+## Connect
+
+- [GitHub](https://github.com/santapower)
+- [LinkedIn](https://www.linkedin.com/in/daniel-kim-489656329/)

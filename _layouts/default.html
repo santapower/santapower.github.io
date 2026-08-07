@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    {% if page.title %}
+      {{ page.title }} | {{ site.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </title>
+
+  <link rel="stylesheet"
+        href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+</head>
+
+<body>
+
+  <header class="page-header" role="banner">
+    <h1 class="project-name">{{ page.title | default: site.title }}</h1>
+
+    <h2 class="project-tagline">
+      {{ site.description }}
+    </h2>
+  </header>
+
+  <main id="content" class="main-content" role="main">
+
+    <nav style="margin-bottom: 40px;">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      &nbsp; | &nbsp;
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      &nbsp; | &nbsp;
+      <a href="https://github.com/santapower">GitHub</a>
+    </nav>
+
+    {{ content }}
+
+    <footer class="site-footer">
+      <hr>
+      <p>
+        © {{ site.time | date: "%Y" }} Daniel Kim
+      </p>
+    </footer>
+
+  </main>
+
+</body>
+</html>

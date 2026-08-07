@@ -30,12 +30,17 @@
   <main id="content" class="main-content" role="main">
 
     <nav style="margin-bottom: 40px;">
-      <a href="{{ '/' | relative_url }}">Home</a>
-      &nbsp; | &nbsp;
-      <a href="{{ '/about/' | relative_url }}">About</a>
-      &nbsp; | &nbsp;
-      <a href="https://github.com/santapower">GitHub</a>
-    </nav>
+  <a href="{{ '/' | relative_url }}">Home</a>
+  &nbsp; | &nbsp;
+
+  <a href="{{ '/posts/' | relative_url }}">Posts</a>
+  &nbsp; | &nbsp;
+
+  <a href="{{ '/about/' | relative_url }}">About</a>
+  &nbsp; | &nbsp;
+
+  <a href="https://github.com/santapower">GitHub</a>
+</nav>
 
     {{ content }}
 

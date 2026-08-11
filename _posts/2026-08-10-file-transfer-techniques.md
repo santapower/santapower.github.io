@@ -1,5 +1,5 @@
 ---
-
+layout: default
 title: "File Transfer Techniques I Learned"
 date: 2026-08-10
 categories: [Cybersecurity]

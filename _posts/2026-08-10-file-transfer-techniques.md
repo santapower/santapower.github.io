@@ -4,7 +4,7 @@ title: "File Transfer Techniques I Learned"
 date: 2026-08-10
 categories: [Cybersecurity]
 tags: [File Transfer, Linux, Windows, PowerShell, SMB, FTP, Base64]
--------------------------------------------------------------------
+---
 
 # File Transfer Techniques I Learned
 

@@ -4,12 +4,24 @@ description: Cybersecurity student sharing projects, technical notes, and learni
 url: "https://santapower.github.io"
 baseurl: ""
 
-theme: jekyll-theme-cayman
+theme: minima
 
 author:
   name: Daniel Kim
 
-show_downloads: false
+header_pages:
+  - index.md
+  - posts.md
+  - about.md
 
-github:
-  is_project_page: false
+github_username: YOUR-USERNAME
+
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+
+show_excerpts: true
+
+minima:
+  skin: dark

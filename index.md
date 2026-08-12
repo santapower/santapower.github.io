@@ -2,7 +2,7 @@
 
 ## Cybersecurity Engineer
 
-I’m a cybersecurity professional pursuing a B.S. in Cybersecurity at Purdue University, with experience in cybersecurity, software development, and networking.
+I’m a cybersecurity professional pursuing a B.S. in Cybersecurity at Purdue University, with experience in cybersecurity, software engineering, and networking.
 
 ### I’m interested in:
 

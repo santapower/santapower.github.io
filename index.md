@@ -5,39 +5,63 @@ title: Home
 
 # Daniel Kim
 
-Cybersecurity student interested in penetration testing, security operations, network security, and cloud security.
+## Cybersecurity Engineer
 
-This site documents my cybersecurity projects, technical notes, labs, and learning journey.
+I am a cybersecurity professional pursuing a B.S. in Cybersecurity at Purdue University, with experience across cybersecurity, software development, networking, and security-focused projects.
 
----
+My interests include penetration testing, security operations, network and cloud security, and building practical security solutions.
 
-## Latest Posts
-
-{% for post in site.posts %}
-
-### [{{ post.title }}]({{ post.url | relative_url }})
-
-**{{ post.date | date: "%B %d, %Y" }}**
-
-{{ post.excerpt }}
-
-[Read more →]({{ post.url | relative_url }})
+I am also particularly interested in the intersection of **cybersecurity and artificial intelligence**, including AI security, secure AI systems, and **AI guardrails** designed to reduce risk and enforce security policies.
 
 ---
 
-{% endfor %}
+## Latest Post
 
-## Areas I'm Learning
+{% assign latest_post = site.posts.first %}
 
-- Penetration Testing
-- Vulnerability Assessment
-- Network Security
-- Linux & Windows Security
-- Cloud Security
-- Python
-- Security Operations
+{% if latest_post %}
 
-## Connect
+### [{{ latest_post.title }}]({{ latest_post.url | relative_url }})
 
-- [GitHub](https://github.com/santapower)
-- [LinkedIn](https://www.linkedin.com/in/daniel-kim-489656329/)
+**{{ latest_post.date | date: "%B %d, %Y" }}**
+
+{% if latest_post.description %}
+{{ latest_post.description }}
+{% endif %}
+
+[Read more →]({{ latest_post.url | relative_url }})
+
+{% endif %}---
+layout: default
+title: Home
+---
+
+# Daniel Kim
+
+## Cybersecurity Engineer
+
+I am a cybersecurity professional pursuing a B.S. in Cybersecurity at Purdue University, with experience across cybersecurity, software development, networking, and security-focused projects.
+
+My interests include penetration testing, security operations, network and cloud security, and building practical security solutions.
+
+I am also particularly interested in the intersection of **cybersecurity and artificial intelligence**, including AI security, secure AI systems, and **AI guardrails** designed to reduce risk and enforce security policies.
+
+---
+
+## Latest Post
+
+{% assign latest_post = site.posts.first %}
+
+{% if latest_post %}
+
+### [{{ latest_post.title }}]({{ latest_post.url | relative_url }})
+
+**{{ latest_post.date | date: "%B %d, %Y" }}**
+
+{% if latest_post.description %}
+{{ latest_post.description }}
+{% endif %}
+
+[Read more →]({{ latest_post.url | relative_url }})
+
+{% endif %}

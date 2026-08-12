@@ -12,8 +12,6 @@ permalink: /posts/
 
 **{{ post.date | date: "%B %d, %Y" }}**
 
-{{ post.excerpt }}
-
 [Read more →]({{ post.url | relative_url }})
 
 ---

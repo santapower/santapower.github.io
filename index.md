@@ -7,11 +7,11 @@ title: Home
 
 ## Cybersecurity Engineer
 
-I am a cybersecurity professional pursuing a B.S. in Cybersecurity at Purdue University, with experience across cybersecurity, software development, networking, and security-focused projects.
+I’m a cybersecurity professional pursuing a B.S. in Cybersecurity at Purdue University.
 
-My interests include penetration testing, security operations, network and cloud security, and building practical security solutions.
+My interests include penetration testing, security operations, networking, and cloud security.
 
-I am also particularly interested in the intersection of **cybersecurity and artificial intelligence**, including AI security, secure AI systems, and **AI guardrails** designed to reduce risk and enforce security policies.
+I’m also interested in AI security, secure AI systems, and AI guardrails.
 
 ---
 
@@ -31,7 +31,8 @@ I am also particularly interested in the intersection of **cybersecurity and art
 
 [Read more →]({{ latest_post.url | relative_url }})
 
-{% endif %}---
+{% endif %}
+---
 layout: default
 title: Home
 ---

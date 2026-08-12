@@ -1,17 +1,16 @@
----
-layout: default
-title: Home
----
-
 # Daniel Kim
 
 ## Cybersecurity Engineer
 
-I’m a cybersecurity professional pursuing a B.S. in Cybersecurity at Purdue University.
+I’m a cybersecurity professional pursuing a B.S. in Cybersecurity at Purdue University, with experience in cybersecurity, software development, and networking.
 
-My interests include penetration testing, security operations, networking, and cloud security.
+### I’m interested in:
 
-I’m also interested in AI security, secure AI systems, and AI guardrails.
+- Penetration Testing
+- Security Operations
+- Network & Cloud Security
+- AI Security & Secure AI Systems
+- AI Guardrails
 
 ---
 
@@ -32,3 +31,9 @@ I’m also interested in AI security, secure AI systems, and AI guardrails.
 [Read more →]({{ latest_post.url | relative_url }})
 
 {% endif %}
+
+---
+
+## Connect
+
+[LinkedIn](https://www.linkedin.com/in/daniel-kim-489656329/) · [GitHub](https://github.com/santapower)

